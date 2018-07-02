@@ -20,7 +20,7 @@ class Stack
 			@array.delete_at(@head)
 			@head = @head - 1
 		else
-			puts("Stack is empty")
+			return ("Stack is empty")
 		end
 	end
 

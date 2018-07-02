@@ -16,7 +16,12 @@ class Stack
 	end
 
 	def pop()
-		@array.delete_at(@head)
+		if (!stack_empty?())
+			@array.delete_at(@head)
+			@head = @head - 1
+		else
+			puts("Stack is empty")
+		end
 	end
 
 	def stack_empty?()

@@ -58,6 +58,18 @@ class List
 		puts node.data
 	end
 
+	def search(data)
+		node = @head
+		while node != null
+			if node.data = data
+				return true
+			else
+				node = node.next
+			end
+		end
+		return false
+	end
+
 	class LinkedListNode 
 
 		attr_accessor :data, :next

@@ -82,15 +82,6 @@ class List
 
 end
 
-list1 = List.new
-list1.append("thomas")
-list1.prepend("keating")
-list1.prepend("donna")
-list1.append("william")
-list1.walk
-list1.size
-list1.at(3)
-
 
 =begin 
 For another time/review

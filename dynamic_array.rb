@@ -1,37 +1,43 @@
 class DynamicArray
 	
 	def initialize(capacity)
-		@capacity = capacity #the total capacity for the array
 		@current_length = 0 #the current size of the array
 		@array = Array.new(capacity) #intialize an array of capacity capacity
 	end
 
-	def add(object)
-		if @current_length == @capacity
-			puts "expanding!"
-			@capacity = @capacity*2
-			old_array = @array
-			@array = Array.new(@capacity)
-			old_array.each_with_index do |val, index|
-				@array[index] = val
-			end
-			@array[@current_length] = object
-			@current_length = @current_length + 1
-		else
-			@array[@current_length] = object
-			@current_length = @current_length + 1
+	def insert(item)
+		resize(getCapacity()*2) if @current_length + 1 > getCapacity()
+		@array[@current_length+= 1] = item
+	end
+
+	def delete()
+		item = @array[--@current_length]
+		@array[@current_length] = null
+		resize(getCapacity()/2) if getSize() - 1 < getCapacity()/4
+		return item
+	end
+
+	def resize(new_max)
+		temp = Array.new(new_max)
+		for i in 0..@current_length
+			temp[i] = @array[i]
 		end
+		@array = temp
 	end
 
-	def index(index)
-		return @array[index]
+	def return_at_index(index1)
+		return @array[index1]
 	end
 
-	def replaceAt(index, object)
-		@array[index] = object
+	def replaceAt(index1, item)
+		@array[index1] = item
 	end
 
-	def searchFor(object)
+	def getSize()
+		return @current_length
+	end
+
+	def getCapacity()
+		return @array.length
 	end
 end
-

@@ -7,7 +7,7 @@ class List
 		@tail = nil
 	end
 
-	def append(key, data)
+	def append(key, data = nil)
 		node = LinkedListNode.new(key, data)
 		if @head == nil 
 			@head = node
@@ -18,7 +18,7 @@ class List
 		end
 	end
 
-	def prepend(key, data)
+	def prepend(key, data = nil)
 		node = LinkedListNode.new(key, data)
 		if @head == nil 
 			append(node)
